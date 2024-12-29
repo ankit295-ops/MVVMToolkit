@@ -44,10 +44,10 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            afterEvaluate {
                 from(components["release"])
                 artifactId = "mvvmtoolkit"
                 groupId = "com.github.ankit295-ops"
